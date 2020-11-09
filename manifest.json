@@ -1,0 +1,23 @@
+{
+  "name": "Mirrativ Comment Reader",
+  "version": "1.0",
+  "description": "read comments in Mirrativ stream with TTS",
+  "permissions": ["tabs"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.mirrativ.com/broadcast/*"],
+      "js": ["jquery.min.js", "contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon-128-gray.png"
+  },
+  "icons": {
+    "128": "icon-128-color.png"
+  },
+  "manifest_version": 2
+}
