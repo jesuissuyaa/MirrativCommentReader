@@ -15,6 +15,7 @@ window.onload = async () => {
 
 /* functions */
 const bindThis = ev => {
+  const [name, comment] = ev.target.innerText.split
   readComment(ev.target.innerText)
 }
 
@@ -46,7 +47,12 @@ const voices = synth.getVoices()
 
 const readComment = comment => {
   console.log(comment)
+  /* START TEST: enter comments only */
+  if (!comment.includes('が入室しました')) return
+  /* END TEST */
   const readThis = new SpeechSynthesisUtterance(comment)
   readThis.voice = voices[jpVoiceIndices[0]] // can be 0 or 1 i.e. 0, 57 of voices
+  readThis.pitch = 2
+  readThis.rate = 1.5
   synth.speak(readThis)
 }
